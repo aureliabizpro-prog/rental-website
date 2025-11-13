@@ -1,6 +1,9 @@
-import React from 'react';
+"use client";
+
+import React, { useState, useMemo } from 'react';
 import RentalCard from '@/components/RentalCard';
 import PageHeader from '@/components/PageHeader';
+import FilterBar from '@/components/FilterBar';
 
 // 示範資料
 const sampleRentals = [
@@ -31,7 +34,7 @@ const sampleRentals = [
   {
     id: "2025-10-14-002",
     district: "中正區",
-    housing_type: "套房",
+    housing_type: "獨立套房",
     rent: "18000",
     is_multi_room: false,
     posted_date: "2025-10-14",
@@ -53,7 +56,7 @@ const sampleRentals = [
   {
     id: "2025-10-14-003",
     district: "信義區",
-    housing_type: "共生宅",
+    housing_type: "雅套混合",
     rent_range: {
       min: "11800",
       max: "12300"
@@ -80,16 +83,67 @@ const sampleRentals = [
 ];
 
 export default function Home() {
+  // 篩選狀態管理
+  const [selectedDistrict, setSelectedDistrict] = useState('');
+  const [selectedHousingType, setSelectedHousingType] = useState('');
+
+  // 篩選邏輯
+  const filteredRentals = useMemo(() => {
+    return sampleRentals.filter(rental => {
+      // 區域篩選
+      if (selectedDistrict && rental.district !== selectedDistrict) {
+        return false;
+      }
+
+      // 房型篩選
+      if (selectedHousingType && rental.housing_type !== selectedHousingType) {
+        return false;
+      }
+
+      return true;
+    });
+  }, [selectedDistrict, selectedHousingType]);
+
+  // 清除所有篩選
+  const handleClearFilters = () => {
+    setSelectedDistrict('');
+    setSelectedHousingType('');
+  };
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       {/* 頁面表頭 */}
-      <PageHeader totalListings={sampleRentals.length} />
+      <PageHeader totalListings={filteredRentals.length} />
+
+      {/* 篩選列 */}
+      <FilterBar
+        selectedDistrict={selectedDistrict}
+        selectedHousingType={selectedHousingType}
+        onDistrictChange={setSelectedDistrict}
+        onHousingTypeChange={setSelectedHousingType}
+        onClearFilters={handleClearFilters}
+      />
 
       {/* 租屋卡片網格 */}
       <div className="max-w-6xl mx-auto px-6 py-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sampleRentals.map((rental) => (
-          <RentalCard key={rental.id} rental={rental} />
-        ))}
+        {filteredRentals.length > 0 ? (
+          filteredRentals.map((rental) => (
+            <RentalCard key={rental.id} rental={rental} />
+          ))
+        ) : (
+          <div className="col-span-full text-center py-12">
+            <p className="text-lg font-medium text-gray-500">
+              找不到符合條件的物件
+            </p>
+            <button
+              onClick={handleClearFilters}
+              className="mt-4 text-sm font-medium underline"
+              style={{ color: '#334155' }}
+            >
+              清除篩選條件
+            </button>
+          </div>
+        )}
       </div>
     </main>
   );
