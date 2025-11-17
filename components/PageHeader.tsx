@@ -46,9 +46,9 @@ const PageHeader: React.FC<PageHeaderProps> = ({ totalListings = 156 }) => {
         {/* 24小時標籤 */}
         <div className="flex justify-center mb-6">
           <div
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2"
             style={{
-              backgroundColor: COLORS.accent.orange,
+              borderColor: COLORS.accent.orange,
               color: COLORS.accent.orangeText
             }}
           >
@@ -74,14 +74,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ totalListings = 156 }) => {
         </div>
 
         {/* 統計資訊區 */}
-        <div className="flex flex-col items-center gap-2 mb-6">
-          <div
-            className="flex items-center gap-2 text-sm"
-            style={{ color: COLORS.text.secondary }}
-          >
-            <Zap size={16} />
-            <span>每日即時更新</span>
-          </div>
+        <div className="flex justify-center mb-6">
           <div
             className="flex items-center gap-2 text-sm font-medium"
             style={{ color: COLORS.text.primary }}
