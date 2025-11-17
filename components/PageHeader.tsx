@@ -20,8 +20,8 @@ const COLORS = {
     muted: '#9B9B9B',        // 輔助文字
   },
   accent: {
-    yellow: '#FCD34D',       // 金黃色背景
-    yellowText: '#92400E',   // 金黃標籤文字
+    orange: '#FFB380',       // Claude風格淺橙色背景
+    orangeText: '#C2410C',   // 橙色標籤文字
   }
 };
 
@@ -46,10 +46,10 @@ const PageHeader: React.FC<PageHeaderProps> = ({ totalListings = 156 }) => {
         {/* 24小時標籤 */}
         <div className="flex justify-center mb-6">
           <div
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg"
             style={{
-              backgroundColor: COLORS.accent.yellow,
-              color: COLORS.accent.yellowText
+              backgroundColor: COLORS.accent.orange,
+              color: COLORS.accent.orangeText
             }}
           >
             <Zap size={18} strokeWidth={2.5} />
@@ -92,21 +92,18 @@ const PageHeader: React.FC<PageHeaderProps> = ({ totalListings = 156 }) => {
         </div>
 
         {/* 資訊狀態圖例 */}
-        <div className="flex flex-col items-center gap-2 pt-4 border-t border-gray-200">
-          <div className="flex items-center gap-2 text-xs sm:text-sm">
+        <div className="flex flex-wrap justify-center gap-4 pt-4 border-t border-gray-200">
+          <div className="flex items-center gap-1.5 text-xs sm:text-sm">
             <span className="w-3 h-3 rounded-full bg-gray-800"></span>
-            <span style={{ color: COLORS.text.secondary }}>貼文提煉資訊</span>
+            <span style={{ color: COLORS.text.secondary }}>提煉資訊</span>
           </div>
-          <div className="flex items-center gap-2 text-xs sm:text-sm">
+          <div className="flex items-center gap-1.5 text-xs sm:text-sm">
             <span className="w-3 h-3 rounded-full bg-gray-300"></span>
             <span style={{ color: COLORS.text.secondary }}>未提供</span>
           </div>
-          <div className="flex items-center gap-2 text-xs sm:text-sm">
-            <span className="w-3 h-3 rounded-full bg-orange-500"></span>
-            <span className="flex items-center gap-1" style={{ color: COLORS.text.secondary }}>
-              <AlertTriangle size={14} className="text-orange-500" />
-              資訊衝突
-            </span>
+          <div className="flex items-center gap-1.5 text-xs sm:text-sm">
+            <AlertTriangle size={14} className="text-orange-500" />
+            <span style={{ color: COLORS.text.secondary }}>資訊衝突</span>
           </div>
         </div>
 

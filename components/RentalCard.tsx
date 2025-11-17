@@ -440,17 +440,17 @@ const RentalCard: React.FC<RentalCardProps> = ({ rental }) => {
 
       {/* 詳細資訊 */}
       <div className="space-y-3">
-        {/* 地址 */}
+        {/* 詳細地址 */}
         {details.address !== null ? (
-          <InfoRow 
+          <InfoRow
             icon={<MapPin size={16} />}
-            label="地址"
+            label="詳細地址"
             value={details.address}
           />
         ) : (
-          <InfoRow 
+          <InfoRow
             icon={<MapPin size={16} />}
-            label="地址"
+            label="詳細地址"
             value="未提供"
             valueStyle={{ color: COLORS.text.muted }}
           />
