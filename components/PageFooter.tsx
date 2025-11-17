@@ -21,14 +21,14 @@ const PageFooter: React.FC = () => {
   return (
     <footer className="w-full bg-white border-t py-8 px-6 mt-12" style={{ borderColor: COLORS.border }}>
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-center md:text-left">
+        <div className="grid grid-cols-2 gap-4 md:gap-6 text-left">
 
           {/* 左側：關於本站 */}
           <div>
-            <h3 className="text-sm font-semibold mb-2" style={{ color: COLORS.text.primary }}>
+            <h3 className="text-xs sm:text-sm font-semibold mb-2" style={{ color: COLORS.text.primary }}>
               關於本站
             </h3>
-            <p className="text-xs sm:text-sm mb-1" style={{ color: COLORS.text.secondary }}>
+            <p className="text-xs mb-1" style={{ color: COLORS.text.secondary }}>
               由 <a
                 href="https://www.threads.com/@housemate_tw"
                 target="_blank"
@@ -39,21 +39,21 @@ const PageFooter: React.FC = () => {
                 好室友
               </a> 團隊每日整理
             </p>
-            <p className="text-xs sm:text-sm" style={{ color: COLORS.text.secondary }}>
+            <p className="text-xs" style={{ color: COLORS.text.secondary }}>
               彙整大台北 FB 租屋社團最新物件
             </p>
           </div>
 
           {/* 右側：聯絡我們 */}
           <div>
-            <h3 className="text-sm font-semibold mb-2" style={{ color: COLORS.text.primary }}>
+            <h3 className="text-xs sm:text-sm font-semibold mb-2" style={{ color: COLORS.text.primary }}>
               聯絡我們
             </h3>
             <a
               href="https://www.threads.com/@housemate_tw"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs sm:text-sm hover:underline inline-flex items-center gap-1"
+              className="text-xs hover:underline inline-flex items-center gap-1"
               style={{ color: COLORS.text.secondary }}
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
