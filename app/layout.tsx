@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export const metadata: Metadata = {
   title: "大台北租屋網 - 最新物件彙整",
@@ -11,9 +12,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
   return (
     <html lang="zh-TW">
-      <body>{children}</body>
+      <body>
+        {gaId && <GoogleAnalytics measurementId={gaId} />}
+        {children}
+      </body>
     </html>
   );
 }

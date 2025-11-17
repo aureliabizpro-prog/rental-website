@@ -3,6 +3,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import RentalCard from '@/components/RentalCard';
 import PageHeader from '@/components/PageHeader';
+import PageFooter from '@/components/PageFooter';
 import FilterBar from '@/components/FilterBar';
 
 // 暫時直接嵌入資料進行測試
@@ -150,6 +151,9 @@ export default function Home() {
           </div>
         )}
       </div>
+
+      {/* 頁面底部 */}
+      <PageFooter />
     </main>
   );
 }
