@@ -96,7 +96,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ totalListings = 156 }) => {
           </div>
           <div className="flex items-center gap-1.5 text-xs sm:text-sm">
             <AlertTriangle size={14} className="text-orange-500" />
-            <span style={{ color: COLORS.text.secondary }}>資訊衝突</span>
+            <span style={{ color: COLORS.text.secondary }}>警示資訊</span>
           </div>
         </div>
 

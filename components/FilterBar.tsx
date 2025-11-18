@@ -22,6 +22,7 @@ const COLORS = {
     primary: '#2C2C2C',
     secondary: '#6B6B6B',
     cta: '#334155',       // CTA 連結顏色（板岩藍）
+    orange: '#D97706',    // 橘色（用於placeholder）
   },
   border: '#E5E5E5',
   background: '#FFFFFF',
@@ -99,7 +100,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
   const hasActiveFilters = selectedDistrict !== '' || selectedHousingType !== '';
 
   return (
-    <div className="w-full bg-white border-b" style={{ borderColor: COLORS.border }}>
+    <div className="sticky top-0 z-50 w-full bg-white border-b shadow-sm" style={{ borderColor: COLORS.border }}>
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="space-y-3">
           {/* 篩選列：兩個下拉選單並排 */}
@@ -112,7 +113,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
                 className="w-full px-3 py-2.5 rounded-lg border text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1"
                 style={{
                   borderColor: COLORS.border,
-                  color: selectedDistrict ? COLORS.text.primary : COLORS.text.secondary,
+                  color: selectedDistrict ? COLORS.text.primary : COLORS.text.orange,
                   backgroundColor: COLORS.background,
                 }}
               >
@@ -142,7 +143,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
                 className="w-full px-3 py-2.5 rounded-lg border text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1"
                 style={{
                   borderColor: COLORS.border,
-                  color: selectedHousingType ? COLORS.text.primary : COLORS.text.secondary,
+                  color: selectedHousingType ? COLORS.text.primary : COLORS.text.orange,
                   backgroundColor: COLORS.background,
                 }}
               >
