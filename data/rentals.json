@@ -1,0 +1,659 @@
+[
+  {
+    "id": "2025-11-19_001",
+    "district": "三重區",
+    "housing_type": "獨立套房",
+    "rent_price": "13500",
+    "title": "套房",
+    "summary_notes": [
+      "一週內可入住"
+    ],
+    "address": "三重區仁義街",
+    "room_size": "1房1衛",
+    "overall_layout": null,
+    "floor_info": null,
+    "area_ping": null,
+    "room_details": null,
+    "rights": [],
+    "cost_notes": [
+      "台電均攤",
+      "租金含水",
+      "租金含網路",
+      "租金含第四台"
+    ],
+    "facilities": [
+      "獨立洗衣機",
+      "垃圾代收"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25268355056161973"
+  },
+  {
+    "id": "2025-11-19_002",
+    "district": "信義區",
+    "housing_type": "雅房",
+    "rent_price": "8500",
+    "title": "雅房",
+    "summary_notes": [
+      "步行10分鐘到市政府捷運站",
+      "步行5分鐘到饒河夜市",
+      "室友有2隻貓",
+      "12/5可入住",
+      "傢俱非全新",
+      "未說明室友性別"
+    ],
+    "address": "台北市信義區基隆路一段2X號",
+    "room_size": null,
+    "overall_layout": "3房1衛",
+    "floor_info": "3F",
+    "area_ping": null,
+    "room_details": null,
+    "rights": [
+      "🐶😺可寵",
+      "租客自找室友"
+    ],
+    "cost_notes": [
+      "台水台電均攤"
+    ],
+    "facilities": [
+      "電動麻將桌"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25268429649487847"
+  },
+  {
+    "id": "2025-11-19_003",
+    "district": "永和區",
+    "housing_type": "雅房",
+    "rent_price": "11500",
+    "title": "雅房",
+    "summary_notes": [],
+    "address": "新北市永和區保安路.保福路口",
+    "room_size": null,
+    "overall_layout": "4房2衛",
+    "floor_info": "5F",
+    "area_ping": null,
+    "room_details": [
+      "Room C：溫馨雅房 $11,500元/月"
+    ],
+    "rights": [
+      "可租補",
+      "可設籍"
+    ],
+    "cost_notes": [
+      "台電均攤",
+      "台水均攤",
+      "天然氣瓦斯均攤",
+      "租金含網路",
+      "租金含管理費",
+      "租金含垃圾代收"
+    ],
+    "facilities": [
+      "垃圾代收"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25268494422814703"
+  },
+  {
+    "id": "2025-11-19_004",
+    "district": "蘆洲區",
+    "housing_type": "整層住家",
+    "rent_price": "15000",
+    "title": "可寵一房一廳",
+    "summary_notes": [],
+    "address": "蘆洲區 九芎街71巷",
+    "room_size": "1房1廳1衛",
+    "overall_layout": null,
+    "floor_info": "7F",
+    "area_ping": null,
+    "room_details": null,
+    "rights": [
+      "🐶😺可寵",
+      "屋主自租",
+      "免仲介費"
+    ],
+    "cost_notes": [
+      "台水計費",
+      "台電計費"
+    ],
+    "facilities": [
+      "獨立洗衣機"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25268470356150443"
+  },
+  {
+    "id": "2025-11-19_005",
+    "district": "內湖區",
+    "housing_type": "整層住家",
+    "rent_price": null,
+    "title": "整層住家",
+    "summary_notes": [
+      "5F以上無電梯"
+    ],
+    "address": "台北市內湖區港華街XX巷XX弄XX號",
+    "room_size": "2房1廳1衛",
+    "overall_layout": null,
+    "floor_info": "5F",
+    "area_ping": 16,
+    "room_details": null,
+    "rights": [
+      "可租補"
+    ],
+    "cost_notes": [
+      "租金含水",
+      "電費$6/度"
+    ],
+    "facilities": [
+      "洗脫烘"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25268453126152166"
+  },
+  {
+    "id": "2025-11-19_006",
+    "district": "中和區",
+    "housing_type": "雅房",
+    "rent_price": "12000",
+    "title": "雅房",
+    "summary_notes": [
+      "步行8分鐘到景安站"
+    ],
+    "address": "新北市中和區景新街96巷 南山路口",
+    "room_size": null,
+    "overall_layout": "4房2衛",
+    "floor_info": "3F",
+    "area_ping": null,
+    "room_details": [
+      "Room C：靜謐雅房 $12,000元/月"
+    ],
+    "rights": [
+      "可租補",
+      "可設籍"
+    ],
+    "cost_notes": [
+      "台電均攤",
+      "台水均攤",
+      "天然氣瓦斯均攤",
+      "租金含網路",
+      "租金含管理費",
+      "租金含垃圾代收"
+    ],
+    "facilities": [
+      "垃圾代收",
+      "包裹代收"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25268447789486033"
+  },
+  {
+    "id": "2025-11-19_007",
+    "district": "信義區",
+    "housing_type": "獨立套房",
+    "rent_price": "18000",
+    "title": "套房",
+    "summary_notes": [
+      "全新裝潢"
+    ],
+    "address": "台北市信義區松山路XX巷XX弄XX號",
+    "room_size": null,
+    "overall_layout": null,
+    "floor_info": "3F",
+    "area_ping": 6,
+    "room_details": null,
+    "rights": [
+      "😺可養貓",
+      "可租補",
+      "可報稅",
+      "可入籍"
+    ],
+    "cost_notes": [
+      "租金含水",
+      "台電計費"
+    ],
+    "facilities": [
+      "獨立陽台"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25268396559491156"
+  },
+  {
+    "id": "2025-11-19_008",
+    "district": "大安區",
+    "housing_type": "雅房",
+    "rent_price": "16800",
+    "title": "雅房",
+    "summary_notes": [
+      "步行5分鐘到古亭捷運站",
+      "全新裝潢",
+      "首次釋出",
+      "可自備傢俱"
+    ],
+    "address": "台北市大安區浦城街",
+    "room_size": null,
+    "overall_layout": null,
+    "floor_info": "2F",
+    "area_ping": null,
+    "room_details": null,
+    "rights": [
+      "可租補",
+      "可報稅"
+    ],
+    "cost_notes": [
+      "台水台電按人頭均分"
+    ],
+    "facilities": [
+      "垃圾代收"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25268367922827353"
+  },
+  {
+    "id": "2025-11-19_009",
+    "district": "淡水區",
+    "housing_type": "分租套房",
+    "rent_price": "7000",
+    "title": "套房",
+    "summary_notes": [
+      "步行1分鐘到真理大學"
+    ],
+    "address": "淡水區新民街180巷",
+    "room_size": null,
+    "overall_layout": null,
+    "floor_info": "2F",
+    "area_ping": 5,
+    "room_details": null,
+    "rights": [
+      "房東自租"
+    ],
+    "cost_notes": [
+      "電費$5/度",
+      "水費$100/月",
+      "租金含網路",
+      "租金含第四台"
+    ],
+    "facilities": [
+      "烘衣機"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25268297532834392"
+  },
+  {
+    "id": "2025-11-19_010",
+    "district": "三重區",
+    "housing_type": "獨立套房",
+    "rent_price": "7500",
+    "title": "套房",
+    "summary_notes": [
+      "5F以上無電梯"
+    ],
+    "address": "新北市三重區力行路二段136巷45弄2x號",
+    "room_size": null,
+    "overall_layout": null,
+    "floor_info": "5F",
+    "area_ping": 5,
+    "room_details": null,
+    "rights": [],
+    "cost_notes": [
+      "電費$5/度",
+      "夏季電費$6/度",
+      "租金含水",
+      "租金含網路",
+      "租金含第四台"
+    ],
+    "facilities": [],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25267888876208591"
+  },
+  {
+    "id": "2025-11-19_011",
+    "district": "大安區",
+    "housing_type": "雅房",
+    "rent_price": "13800",
+    "title": "雅房",
+    "summary_notes": [
+      "步行10分鐘到台電大樓站",
+      "招租C房",
+      "室友為3女"
+    ],
+    "address": "泰順街40巷",
+    "room_size": null,
+    "overall_layout": "1套4雅",
+    "floor_info": "3F",
+    "area_ping": null,
+    "room_details": [
+      "C柔光雅房 /$13800"
+    ],
+    "rights": [
+      "可租補"
+    ],
+    "cost_notes": [
+      "台電均攤",
+      "台水均攤",
+      "瓦斯費均攤",
+      "租金含管理費",
+      "租金含垃圾代收費"
+    ],
+    "facilities": [
+      "垃圾代收"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25268284386169040"
+  },
+  {
+    "id": "2025-11-19_012",
+    "district": "內湖區",
+    "housing_type": "雅房",
+    "rent_price": "11000",
+    "title": "雅房",
+    "summary_notes": [
+      "步行5分鐘到文德站",
+      "5F以上無電梯",
+      "招租房間2"
+    ],
+    "address": null,
+    "room_size": null,
+    "overall_layout": "3房1衛",
+    "floor_info": "5F/5F",
+    "area_ping": null,
+    "room_details": [
+      "房間2：NTD$11000"
+    ],
+    "rights": [
+      "😺可養貓"
+    ],
+    "cost_notes": [
+      "水電瓦斯費與室友均攤"
+    ],
+    "facilities": [
+      "垃圾代收",
+      "烘衣機"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25268218616175617"
+  },
+  {
+    "id": "2025-11-19_013",
+    "district": "蘆洲區",
+    "housing_type": "分租套房",
+    "rent_price": "15800",
+    "title": "華廈主臥",
+    "summary_notes": [
+      "一層兩戶",
+      "廁所有窗",
+      "找室友/情侶"
+    ],
+    "address": "新北市蘆洲區長榮路",
+    "room_size": "主臥",
+    "overall_layout": null,
+    "floor_info": "13F",
+    "area_ping": 8,
+    "room_details": null,
+    "rights": [
+      "租客轉租"
+    ],
+    "cost_notes": [
+      "天然瓦斯均分",
+      "電費均分",
+      "水費均分",
+      "WiFi費用300/月"
+    ],
+    "facilities": [
+      "電梯"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25268200652844080"
+  },
+  {
+    "id": "2025-11-19_014",
+    "district": "中正區",
+    "housing_type": "分租套房",
+    "rent_price": "9800",
+    "title": "套房",
+    "summary_notes": [
+      "透天分租"
+    ],
+    "address": "中正區臨沂街",
+    "room_size": null,
+    "overall_layout": null,
+    "floor_info": "2F",
+    "area_ping": 5,
+    "room_details": null,
+    "rights": [],
+    "cost_notes": [
+      "電費$5/度"
+    ],
+    "facilities": [],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25268018876195591"
+  },
+  {
+    "id": "2025-11-19_015",
+    "district": "中和區",
+    "housing_type": "獨立套房",
+    "rent_price": "14000",
+    "title": "套房",
+    "summary_notes": [
+      "5F以上無電梯",
+      "4戶共用2台洗衣機",
+      "頂樓可曬衣"
+    ],
+    "address": "新北市中和區永和路9巷XX號",
+    "room_size": null,
+    "overall_layout": null,
+    "floor_info": "5F",
+    "area_ping": 8,
+    "room_details": null,
+    "rights": [
+      "可租補",
+      "可入戶籍"
+    ],
+    "cost_notes": [
+      "租金含水",
+      "租金含電",
+      "租金含瓦斯",
+      "租金含網路",
+      "租金含第四台"
+    ],
+    "facilities": [],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25268014482862697"
+  },
+  {
+    "id": "2025-11-19_016",
+    "district": "大安區",
+    "housing_type": "獨立套房",
+    "rent_price": "16000",
+    "title": "獨立套房",
+    "summary_notes": [
+      "離台電大樓站421公尺",
+      "全新首租"
+    ],
+    "address": "大安區泰順街",
+    "room_size": null,
+    "overall_layout": null,
+    "floor_info": "3F/5F",
+    "area_ping": 6,
+    "room_details": null,
+    "rights": [
+      "可租補"
+    ],
+    "cost_notes": [],
+    "facilities": [
+      "獨立洗衣機"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25267984559532356"
+  },
+  {
+    "id": "2025-11-19_017",
+    "district": "新店區",
+    "housing_type": "獨立套房",
+    "rent_price": "11500",
+    "title": "套房",
+    "summary_notes": [],
+    "address": "新店區永安街",
+    "room_size": null,
+    "overall_layout": null,
+    "floor_info": "4F",
+    "area_ping": 9,
+    "room_details": null,
+    "rights": [
+      "🐶😺可寵"
+    ],
+    "cost_notes": [
+      "電費$5/度"
+    ],
+    "facilities": [
+      "獨立洗衣機"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25267961856201293"
+  },
+  {
+    "id": "2025-11-19_018",
+    "district": "板橋區",
+    "housing_type": "雅房",
+    "rent_price": "6000~10000",
+    "title": "雅房",
+    "summary_notes": [
+      "限女性",
+      "市場樓上"
+    ],
+    "address": "新北市板橋區中正路***巷**號",
+    "room_size": null,
+    "overall_layout": null,
+    "floor_info": "2F",
+    "area_ping": null,
+    "room_details": [
+      "8坪雅房，租金10000元",
+      "4坪雅房，租金6000元"
+    ],
+    "rights": [],
+    "cost_notes": [
+      "水電以帳單均分"
+    ],
+    "facilities": [],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25267955986201880"
+  },
+  {
+    "id": "2025-11-19_019",
+    "district": "內湖區",
+    "housing_type": "雅房",
+    "rent_price": "13800",
+    "title": "雅房",
+    "summary_notes": [
+      "招租B房",
+      "與兩位女性室友共用衛浴"
+    ],
+    "address": "內湖區737巷美食街附近",
+    "room_size": null,
+    "overall_layout": "4房2衛",
+    "floor_info": "3F",
+    "area_ping": null,
+    "room_details": [
+      "雅房Ｂ - $ 13,800"
+    ],
+    "rights": [
+      "可租補"
+    ],
+    "cost_notes": [
+      "電費依帳單繳納",
+      "水費依帳單繳納",
+      "瓦斯費依帳單繳納",
+      "租金包含網路費、垃圾代收"
+    ],
+    "facilities": [
+      "垃圾代收"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25267952436202235"
+  },
+  {
+    "id": "2025-11-19_020",
+    "district": "中和區",
+    "housing_type": "獨立套房",
+    "rent_price": "12000",
+    "title": "套房",
+    "summary_notes": [
+      "5F以上無電梯"
+    ],
+    "address": "中和區莒光路",
+    "room_size": null,
+    "overall_layout": null,
+    "floor_info": "5F",
+    "area_ping": 9,
+    "room_details": null,
+    "rights": [
+      "🐶😺可寵"
+    ],
+    "cost_notes": [
+      "電費$5/度"
+    ],
+    "facilities": [
+      "獨立洗衣機"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25267937752870370"
+  },
+  {
+    "id": "2025-11-19_021",
+    "district": "北投區",
+    "housing_type": "獨立套房",
+    "rent_price": "11000",
+    "title": "獨立套房",
+    "summary_notes": [
+      "社會住宅",
+      "現況交屋",
+      "資訊模糊(樓層)"
+    ],
+    "address": "北投泉源路",
+    "room_size": null,
+    "overall_layout": null,
+    "floor_info": null,
+    "area_ping": 10,
+    "room_details": null,
+    "rights": [
+      "可租補",
+      "免仲介費"
+    ],
+    "cost_notes": [],
+    "facilities": [
+      "電梯"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25267860919544720"
+  },
+  {
+    "id": "2025-11-19_022",
+    "district": "中和區",
+    "housing_type": "分租套房",
+    "rent_price": "8800",
+    "title": "套房",
+    "summary_notes": [
+      "5F以上無電梯"
+    ],
+    "address": "新北市中和區中山路二段",
+    "room_size": null,
+    "overall_layout": null,
+    "floor_info": "5F",
+    "area_ping": null,
+    "room_details": null,
+    "rights": [
+      "屋主自租",
+      "可租補"
+    ],
+    "cost_notes": [
+      "電費依台電帳單",
+      "租金含水費",
+      "租金含第四台",
+      "租金含網路"
+    ],
+    "facilities": [
+      "獨立洗衣機"
+    ],
+    "post_date": "2025-11-19",
+    "source_url": "https://www.facebook.com/story.php?story_fbid=25267831149547697"
+  }
+]
