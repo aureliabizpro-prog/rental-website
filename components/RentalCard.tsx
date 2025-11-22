@@ -2,38 +2,8 @@
 
 import React, { useState } from 'react';
 import { MapPin, Home, FileCheck, ChevronDown, ChevronUp, Calendar, Coins, AlertTriangle, Sparkles } from 'lucide-react';
-
-// ============================================
-// TypeScript 類型定義 - V3/V4 格式
-// ============================================
-interface LayoutInfo {
-  room_size?: string | null;
-  overall_layout?: string | null;
-  floor_info?: string | null;
-  area_ping?: number | null;        // V3新增：坪數
-  room_details?: string[] | null;   // V3新增：多房間詳細列表
-}
-
-interface RentalDetails {
-  address: string | null;
-  layout_info: LayoutInfo;
-  rights: string;
-  cost_notes: string[];
-  facilities: string[];
-  // restrictions 欄位已在 V3 中移除
-}
-
-interface Rental {
-  id: string;
-  district: string;
-  housing_type: string;
-  rent_price: string | null;  // V3改為string，支援單一價格、價格區間、null
-  title: string;
-  summary_notes: string[];
-  details: RentalDetails;
-  post_date: string;
-  source_url: string | null;  // V4: 允許null
-}
+import { ValidatedRental } from '@/lib/types';
+import { displayOrFallback, isEmpty } from '@/lib/displayUtils';
 
 // ============================================
 // 配色系統 - 溫潤灰階 + 警告色
@@ -96,74 +66,66 @@ const InfoRow: React.FC<InfoRowProps> = ({ icon, label, value, valueStyle }) => 
 );
 
 // ============================================
-// 子元件：格局資訊折疊區塊
+// 子元件：格局資訊區塊
 // ============================================
 interface LayoutInfoBlockProps {
-  layoutInfo: LayoutInfo;
+  layoutInfo: string;
 }
 
 const LayoutInfoBlock: React.FC<LayoutInfoBlockProps> = ({ layoutInfo }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  // 使用 isEmpty 檢查是否應該隱藏
+  if (isEmpty(layoutInfo)) return null;
 
-  // 按優先級整理資訊：overall_layout > room_size > area_ping > floor_info > room_details
-  const layoutItems = [
-    { label: '整屋格局', value: layoutInfo.overall_layout, key: 'overall_layout' },
-    { label: '房間坪數', value: layoutInfo.room_size, key: 'room_size' },
-    { label: '坪數', value: layoutInfo.area_ping ? `${layoutInfo.area_ping}坪` : null, key: 'area_ping' },
-    { label: '樓層', value: layoutInfo.floor_info, key: 'floor_info' },
-    { label: '房間詳情', value: layoutInfo.room_details ? layoutInfo.room_details.join('、') : null, key: 'room_details' },
-  ].filter(item => item.value); // 只保留有值的項目
-
-  // 如果沒有任何資訊，不顯示這個區塊
-  if (layoutItems.length === 0) return null;
-
-  // 只有1項：直接顯示，無收合按鈕
-  if (layoutItems.length === 1) {
-    return (
-      <div className="mt-4">
-        <div className="flex items-center gap-2 text-sm font-medium" style={{ color: COLORS.text.secondary }}>
-          <Home size={16} />
-          <span>格局說明</span>
-        </div>
-        <div className="mt-2 pl-6 text-sm" style={{ color: COLORS.text.secondary }}>
-          {layoutItems[0].value}
-        </div>
-      </div>
-    );
-  }
-
-  // 2項以上：顯示最重要的 + 收合按鈕
   return (
     <div className="mt-4">
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="flex items-center gap-2 text-sm font-medium hover:opacity-70 transition-opacity"
-        style={{ color: COLORS.text.secondary }}
-      >
+      <div className="flex items-center gap-2 text-sm font-medium mb-2" style={{ color: COLORS.text.secondary }}>
         <Home size={16} />
         <span>格局說明</span>
-        {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-      </button>
-
-      {!isExpanded && (
-        <div className="mt-2 pl-6 text-sm" style={{ color: COLORS.text.secondary }}>
-          {layoutItems[0].value}
-        </div>
-      )}
-
-      {isExpanded && (
-        <div className="mt-2 pl-6 space-y-1 text-sm" style={{ color: COLORS.text.secondary }}>
-          {layoutItems.map(item => (
-            <div key={item.key}>{item.label}：{item.value}</div>
-          ))}
-        </div>
-      )}
+      </div>
+      <div className="pl-6 text-sm" style={{ color: COLORS.text.secondary }}>
+        {layoutInfo}
+      </div>
     </div>
   );
 };
 
 // ============================================
-// 子元件：費用折疊區塊 (cost_notes)
+// 子元件：權利標籤區塊
+// ============================================
+interface RightsTagsBlockProps {
+  rights: string[];
+}
+
+const RightsTagsBlock: React.FC<RightsTagsBlockProps> = ({ rights }) => {
+  if (!rights || rights.length === 0) return null;
+
+  return (
+    <div className="mt-4">
+      <div className="flex items-center gap-2 text-sm font-medium mb-2" style={{ color: COLORS.text.secondary }}>
+        <FileCheck size={16} />
+        <span>權利</span>
+      </div>
+      <div className="flex flex-wrap gap-2 pl-6">
+        {rights.map((right, index) => (
+          <span
+            key={index}
+            className="px-3 py-1 rounded-full text-xs font-medium"
+            style={{
+              backgroundColor: '#F3F4F6',
+              color: COLORS.text.primary,
+              border: `1px solid ${COLORS.border}`
+            }}
+          >
+            {right}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// ============================================
+// 子元件：費用折疊區塊
 // ============================================
 interface CostNotesBlockProps {
   costNotes: string[];
@@ -174,7 +136,7 @@ const CostNotesBlock: React.FC<CostNotesBlockProps> = ({ costNotes }) => {
 
   if (costNotes.length === 0) return null;
 
-  // 只在有明確警告符號時才顯示橘色
+  // 檢查是否有警告符號
   const hasWarning = costNotes.some(note => note.includes('⚠️'));
 
   return (
@@ -226,11 +188,11 @@ const FacilitiesBlock: React.FC<FacilitiesBlockProps> = ({ facilities }) => {
 
   return (
     <div className="mt-4">
-      <div className="flex items-center gap-2 text-sm font-medium" style={{ color: COLORS.text.secondary }}>
+      <div className="flex items-center gap-2 text-sm font-medium mb-2" style={{ color: COLORS.text.secondary }}>
         <Sparkles size={16} />
         <span>加分配備</span>
       </div>
-      <div className="mt-2 pl-6 space-y-1 text-sm" style={{ color: COLORS.text.secondary }}>
+      <div className="pl-6 space-y-1 text-sm" style={{ color: COLORS.text.secondary }}>
         {facilities.slice(0, isExpanded ? facilities.length : displayCount).map((facility, index) => (
           <div key={index}>• {facility}</div>
         ))}
@@ -249,61 +211,52 @@ const FacilitiesBlock: React.FC<FacilitiesBlockProps> = ({ facilities }) => {
 };
 
 // ============================================
-// 子元件：Summary Notes 展開區塊
+// 子元件：Summary Notes - V6 Compatible（合併顯示）
 // ============================================
 interface NotesBlockProps {
   notes: string[];
-  title: string;
 }
 
-const NotesBlock: React.FC<NotesBlockProps> = ({ notes, title }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const NotesBlock: React.FC<NotesBlockProps> = ({ notes }) => {
+  if (!notes || !Array.isArray(notes) || notes.length === 0) return null;
 
-  // 處理每個 note，檢查是否有 [WARNING] 前綴
-  const renderNote = (text: string, index: number) => {
-    if (text.startsWith('[WARNING]')) {
-      const content = text.replace('[WARNING]', '');
-      return (
-        <span key={index} style={{ color: COLORS.text.warning }}>
+  // 過濾空字串
+  const validNotes = notes.filter(note => note && note.trim().length > 0);
+
+  if (validNotes.length === 0) return null;
+
+  // 處理 [WARNING] 前綴並合併成一句話
+  const renderCombinedNotes = () => {
+    const segments: JSX.Element[] = [];
+
+    validNotes.forEach((note, index) => {
+      const isWarning = note.startsWith('[WARNING]');
+      const content = isWarning ? note.replace('[WARNING]', '').trim() : note;
+
+      segments.push(
+        <span
+          key={index}
+          style={{
+            color: isWarning ? COLORS.text.warning : COLORS.text.primary,
+            fontWeight: isWarning ? 'bold' : 'inherit'
+          }}
+        >
           {content}
         </span>
       );
-    }
-    return <span key={index}>{text}</span>;
+
+      // 添加分隔符（最後一項不加）
+      if (index < validNotes.length - 1) {
+        segments.push(<span key={`sep-${index}`}>，</span>);
+      }
+    });
+
+    return segments;
   };
 
-  // 合併 title 和 notes
-  const allContent = [title, ...notes].filter(Boolean);
-  const totalLength = allContent.join('').length;
-  const shouldTruncate = totalLength > 100;
-
   return (
-    <div className="relative">
-      <div
-        className={`text-lg font-bold leading-relaxed ${!isExpanded && shouldTruncate ? 'line-clamp-3' : ''}`}
-        style={{ color: COLORS.text.primary }}
-      >
-        {allContent.map((text, index) => (
-          <React.Fragment key={index}>
-            {renderNote(text, index)}
-            {index < allContent.length - 1 && '、'}
-          </React.Fragment>
-        ))}
-      </div>
-
-      {!isExpanded && shouldTruncate && (
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent" />
-      )}
-
-      {shouldTruncate && (
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="mt-2 text-sm font-medium hover:opacity-70 transition-opacity"
-          style={{ color: COLORS.secondary }}
-        >
-          {isExpanded ? '收合' : '展開完整描述'}
-        </button>
-      )}
+    <div className="text-lg font-bold leading-relaxed" style={{ color: COLORS.text.primary }}>
+      {renderCombinedNotes()}
     </div>
   );
 };
@@ -312,19 +265,22 @@ const NotesBlock: React.FC<NotesBlockProps> = ({ notes, title }) => {
 // 主元件：租屋卡片
 // ============================================
 interface RentalCardProps {
-  rental: Rental;
+  rental: ValidatedRental;
 }
 
 const RentalCard: React.FC<RentalCardProps> = ({ rental }) => {
   const {
     district,
     housing_type,
-    rent_price,
-    title,
+    rent,
     summary_notes,
-    details,
-    post_date,
-    source_url
+    address,
+    rights,
+    cost_notes,
+    facilities,
+    layout_info,
+    posted_date,
+    url
   } = rental;
 
   // 移除「台北市」或「新北市」前綴，只顯示區名
@@ -332,20 +288,8 @@ const RentalCard: React.FC<RentalCardProps> = ({ rental }) => {
     .replace('台北市', '')
     .replace('新北市', '');
 
-  // 處理租金顯示邏輯
-  const formatRentPrice = (price: string | null): string => {
-    if (price === null) return '價格未提供';
-
-    // 檢查是否為價格區間（如 "12000~15000"）
-    if (price.includes('~')) {
-      const [min, max] = price.split('~').map(p => parseInt(p.trim()));
-      return `$${min.toLocaleString()}~${max.toLocaleString()}`;
-    }
-
-    // 單一價格
-    const numPrice = parseInt(price);
-    return `$${numPrice.toLocaleString()}`;
-  };
+  // 格式化租金（保證 rent > 0）
+  const formattedRent = `$${rent.toLocaleString()}`;
 
   return (
     <div
@@ -355,79 +299,56 @@ const RentalCard: React.FC<RentalCardProps> = ({ rental }) => {
         border: `1px solid ${COLORS.border}`
       }}
     >
-      {/* 標籤區域 - 只有客觀資訊 */}
+      {/* 標籤區域 - 區域、房型、租金 */}
       <div className="flex items-end gap-6 mb-5">
         <Tag>{displayDistrict}</Tag>
         <Tag>{housing_type}</Tag>
-        {rent_price !== null ? (
-          <Tag emphasized>{formatRentPrice(rent_price)}</Tag>
-        ) : (
-          <div className="inline-flex flex-col items-center">
-            <span className="text-sm font-medium" style={{ color: COLORS.text.warning }}>
-              價格未提供｜點擊原文查看
-            </span>
-            <div className="w-full h-0.5 mt-1" style={{ backgroundColor: COLORS.text.warning }} />
-          </div>
-        )}
+        <Tag emphasized>{formattedRent}</Tag>
       </div>
 
       {/* Notes 區域 */}
-      <NotesBlock notes={summary_notes} title={title} />
+      <NotesBlock notes={summary_notes} />
 
       {/* 分隔線 */}
       <div className="my-5" style={{ borderTop: `1px solid ${COLORS.light}` }} />
 
-      {/* 詳細資訊 */}
+      {/* 詳細地址 */}
       <div className="space-y-3">
-        {/* 詳細地址 */}
-        {details.address !== null ? (
-          <InfoRow
-            icon={<MapPin size={16} />}
-            label="詳細地址"
-            value={details.address}
-          />
-        ) : (
-          <InfoRow
-            icon={<MapPin size={16} />}
-            label="詳細地址"
-            value="未提供"
-            valueStyle={{ color: COLORS.text.muted }}
-          />
-        )}
-
-        {/* 格局資訊 */}
-        {(details.layout_info.room_size || details.layout_info.overall_layout || details.layout_info.floor_info || details.layout_info.area_ping || details.layout_info.room_details) && (
-          <LayoutInfoBlock layoutInfo={details.layout_info} />
-        )}
-
-        {/* 權利 */}
         <InfoRow
-          icon={<FileCheck size={16} />}
-          label="權利"
-          value={details.rights}
-          valueStyle={details.rights === "未說明" ? { color: COLORS.text.muted } : undefined}
+          icon={<MapPin size={16} />}
+          label="詳細地址"
+          value={displayOrFallback(address)}
+          valueStyle={isEmpty(address) ? { color: COLORS.text.muted } : undefined}
         />
       </div>
 
-      {/* 費用折疊區塊 */}
-      <CostNotesBlock costNotes={details.cost_notes} />
+      {/* 格局資訊 - 獨立區塊 */}
+      <LayoutInfoBlock layoutInfo={layout_info} />
 
-      {/* 設施列表 */}
-      <FacilitiesBlock facilities={details.facilities} />
+      {/* 權利標籤 - 獨立區塊 */}
+      <RightsTagsBlock rights={rights} />
+
+      {/* 費用說明 - 獨立區塊 */}
+      <CostNotesBlock costNotes={cost_notes} />
+
+      {/* 設施列表 - 獨立區塊 */}
+      <FacilitiesBlock facilities={facilities} />
 
       {/* 刊登日期 */}
-      <div
-        className="flex items-center gap-1 mt-4 text-xs"
-        style={{ color: COLORS.text.muted }}
-      >
-        <Calendar size={12} />
-        刊登於 {post_date}
-      </div>
+      {posted_date && (
+        <div
+          className="flex items-center gap-1 mt-4 text-xs"
+          style={{ color: COLORS.text.muted }}
+        >
+          <Calendar size={12} />
+          刊登於 {posted_date}
+        </div>
+      )}
 
       {/* CTA 連結 */}
-      {source_url && (
+      {url && (
         <a
-          href={source_url}
+          href={url}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-5 block text-center text-sm font-medium hover:underline"

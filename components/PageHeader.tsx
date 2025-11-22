@@ -8,6 +8,7 @@ import { Zap, BarChart3, AlertTriangle } from 'lucide-react';
 // ============================================
 interface PageHeaderProps {
   totalListings?: number; // 物件總數（可選，預設會顯示示範數字）
+  showInfoLegend?: boolean; // 是否顯示資訊圖例（預設為 false）
 }
 
 // ============================================
@@ -28,7 +29,7 @@ const COLORS = {
 // ============================================
 // 主元件：頁面表頭
 // ============================================
-const PageHeader: React.FC<PageHeaderProps> = ({ totalListings = 156 }) => {
+const PageHeader: React.FC<PageHeaderProps> = ({ totalListings = 156, showInfoLegend = false }) => {
   return (
     <div className="w-full bg-gradient-to-br from-gray-50 to-blue-50 pb-6 pt-8 px-6">
       <div className="max-w-6xl mx-auto">
@@ -84,21 +85,23 @@ const PageHeader: React.FC<PageHeaderProps> = ({ totalListings = 156 }) => {
           </div>
         </div>
 
-        {/* 資訊狀態圖例 */}
-        <div className="flex flex-wrap justify-center gap-4 pt-4 border-t border-gray-200">
-          <div className="flex items-center gap-1.5 text-xs sm:text-sm">
-            <span className="w-3 h-3 rounded-full bg-gray-800"></span>
-            <span style={{ color: COLORS.text.secondary }}>提煉資訊</span>
+        {/* 資訊狀態圖例 - 僅在 showInfoLegend 為 true 時顯示 */}
+        {showInfoLegend && (
+          <div className="flex flex-wrap justify-center gap-4 pt-4 border-t border-gray-200">
+            <div className="flex items-center gap-1.5 text-xs sm:text-sm">
+              <span className="w-3 h-3 rounded-full bg-gray-800"></span>
+              <span style={{ color: COLORS.text.secondary }}>提煉資訊</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-xs sm:text-sm">
+              <span className="w-3 h-3 rounded-full bg-gray-300"></span>
+              <span style={{ color: COLORS.text.secondary }}>未提供</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-xs sm:text-sm">
+              <AlertTriangle size={14} className="text-orange-500" />
+              <span style={{ color: COLORS.text.secondary }}>警示資訊</span>
+            </div>
           </div>
-          <div className="flex items-center gap-1.5 text-xs sm:text-sm">
-            <span className="w-3 h-3 rounded-full bg-gray-300"></span>
-            <span style={{ color: COLORS.text.secondary }}>未提供</span>
-          </div>
-          <div className="flex items-center gap-1.5 text-xs sm:text-sm">
-            <AlertTriangle size={14} className="text-orange-500" />
-            <span style={{ color: COLORS.text.secondary }}>警示資訊</span>
-          </div>
-        </div>
+        )}
 
       </div>
     </div>
